@@ -31,9 +31,9 @@ export default function DrawerLayout() {
           drawerInactiveTintColor: "#fff",
         }}
       >
-        <Drawer.Screen name="drawer1" options={{ title: "Drawer_1" }} />
+        <Drawer.Screen name="drawer1" options={{ title: "", drawerLabel: "首頁" }} />
         <Drawer.Screen name="drawer2" options={{ title: "當月行情查詢" }} />
-        <Drawer.Screen name="drawer3" options={{ title: "Drawer_3" }} />
+        <Drawer.Screen name="drawer3" options={{ title: "鉅額交易日成交資訊" }} />
         <Drawer.Screen name="product/[id]" options={{ drawerItemStyle: { display: "none" } }} />
       </Drawer>
     </ThemedView>

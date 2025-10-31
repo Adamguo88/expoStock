@@ -58,7 +58,7 @@ export default function Drawer2() {
           };
         });
         const sortStockData = stockData?.sort((a, b) => b?.date?.localeCompare(a?.date));
-        console.log(sortStockData);
+        // console.log(sortStockData);
         return sortStockData;
       } else {
         return [];

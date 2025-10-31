@@ -1,17 +1,20 @@
 import { ThemedText } from "@/components/themed-text";
 import { ThemedView } from "@/components/themed-view";
-import { Link } from "expo-router";
+import { useRouter } from "expo-router";
 import React from "react";
-import { StyleSheet } from "react-native";
+import { StyleSheet, TouchableOpacity } from "react-native";
 
 export default function Drawer1() {
+  const router = useRouter();
+  const home = () => {
+    router.push("/");
+  };
   return (
     <ThemedView style={styles.container}>
-      <ThemedText style={styles.text}>測試1111111111111111111</ThemedText>
-      <ThemedView style={{ marginTop: 10 }}>
-        <Link href="/">
+      <ThemedView style={styles.text}>
+        <TouchableOpacity onPress={home} activeOpacity={0.8}>
           <ThemedText type="link">回首頁</ThemedText>
-        </Link>
+        </TouchableOpacity>
       </ThemedView>
     </ThemedView>
   );
@@ -20,9 +23,13 @@ export default function Drawer1() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
   },
   text: {
-    textAlign: "center",
-    color: "#fff",
+    padding: 10,
+    width: "100%",
+    backgroundColor: "#f1f1f1",
+    alignItems: "center",
   },
 });

@@ -35,7 +35,7 @@ export default function DropDown({ value, setValue }: DropDownPropsType) {
     const list: string[] | [] = result.suggestions ?? [];
     if (list.length >= 1) {
       const searchDropDownList = list?.map((item) => ({ label: item, value: item?.split("\t")?.[0] }));
-      console.log(searchDropDownList);
+      // console.log(searchDropDownList);
       setItems(searchDropDownList);
     } else {
       setItems([]);
@@ -50,10 +50,7 @@ export default function DropDown({ value, setValue }: DropDownPropsType) {
         searchable={true}
         searchPlaceholder="輸入股票代號"
         onChangeSearchText={search_tw_stock_list_api}
-        searchTextInputProps={{
-          keyboardType: Platform.OS === "ios" ? "number-pad" : undefined,
-          onBlur: (e) => e.target.blur(),
-        }}
+        searchTextInputProps={{ keyboardType: Platform.OS === "ios" ? "number-pad" : undefined }}
         translation={{ NOTHING_TO_SHOW: "查無資料" }}
         open={open}
         value={value}

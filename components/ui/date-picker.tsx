@@ -6,7 +6,7 @@ import RNDateTimePicker, { DateTimePickerEvent } from "@react-native-community/d
 // 定义组件的 Props 类型
 interface DateSelectorProps {
   onDateChange: (date: Date) => void;
-  setIsLoadDate: (date: Date) => void;
+  setIsLoadDate?: (date: Date) => void;
   initialDate?: Date;
 }
 
@@ -32,7 +32,9 @@ const DateTimePickerComponent: React.FC<DateSelectorProps> = ({ onDateChange, se
       setDate(currentDate);
       // 将选中的日期传递给父组件
       onDateChange(currentDate);
-      setIsLoadDate(currentDate);
+      if (typeof setIsLoadDate === "function") {
+        setIsLoadDate(currentDate);
+      }
     }
     setShowPicker(false);
   };
@@ -59,7 +61,9 @@ const DateTimePickerComponent: React.FC<DateSelectorProps> = ({ onDateChange, se
           onChange={(v) => {
             const resultDate = new Date(v.target.value);
             onDateChange(resultDate);
-            setIsLoadDate(resultDate);
+            if (typeof setIsLoadDate === "function") {
+              setIsLoadDate(resultDate);
+            }
           }}
           defaultValue={new Date().toLocaleDateString("zh-Tw")?.replaceAll("/", "-")}
         />
