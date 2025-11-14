@@ -58,7 +58,7 @@ const todayStockInfo = (open: string, close: string, change: string) => {
   // 昨收價
   const yesterdayValue = yesterdayPrice(close, change);
   // 當日漲幅
-  const changeValue = closeValue - openValue;
+  const changeValue = closeValue - yesterdayValue;
   // 當日漲幅率
   const changeValueP = (changeValue / yesterdayValue) * 100;
 

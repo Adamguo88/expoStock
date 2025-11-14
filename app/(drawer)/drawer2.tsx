@@ -135,7 +135,7 @@ export default function Drawer2() {
             data={stock}
             keyExtractor={(item) => item.date}
             renderItem={renderItemFunc}
-            onEndReachedThreshold={0.2}
+            onEndReachedThreshold={0.1}
             onEndReached={onEndReached}
             ListFooterComponent={() => <FlashListItemFooter loading={isLoading} />}
           />
